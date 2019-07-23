@@ -1,0 +1,245 @@
+Inter network is a group of devices that r group together and communicate with each other across one single network
+or may interconnected networks, Ex - Internet
+
+Large corporate networks r broken into smaller networks called LAN(Local Area Network) and all these LANs r together
+considered as WAN(Wide Area Network)
+MAN(Metropolitan Area Network)
+
+LAN is basically a small group of devices, such if u have more then one location in chicago each of those locations
+would be considered as the LAN and generally the devices in a LAN are located geographically close to each other to
+share data, Files and other information, Screenshot(15)
+In WAN the LANs the brought together by 3rd party such as telcom providers which provide connectivity to each of
+these different sites, In a LAN a device will connect to printers within that LAN instead of printing all the way
+across town or the country they will however possibly share files and communicate across the WAN
+In order to connect a group of LANs together and create a WAN each facility would require a connection whether using
+T1,T3,ATM,Frame Relay etc to communicate with each other, Screenshot(16)
+
+OSI(Open Systems Interconnection) Model it is theoritical model that will relate that how the data has to transfer
+from one endpoint to another, The traffic moves from layer 7(Application Layer) and then moves to layer 1(Physical
+layer) and cross the medium and go to the OSI stack of the destination so then going from layer 1 to the layer 7,
+Each layer has independent task in this process and specific protocols, Screenshot(17)
+Layer 7 to layer 5 r know as the upper layers and they r usually generated from the softwares attempting to
+communicate over the network, the lower layers from layer 4 to layer 1 handles the actual data transport across the
+network, the layer 1 is responsible for placing the information on the physical medium and sending it off to the
+other endpoint
+Layer 7(Application layer) -> This is were applications such as email(SMTP) or FTP are provided, this layer is
+closet to the end user and begins the process that would started due to an application requesting network services
+Layer 6(Presentation layer) -> It prepares the data and makes it readable for the network in order to be transfered,
+as the coding and conversion makes it readable from one system to another or applications on next layer,
+Some of the data formats negotiated at this layer could include ASCII, Binary and JPEG encryption
+Layer 5(Session layer) -> It establishes, manages and terminates the communication sessions, we use protocols here
+such as NetBIOS, RPC(Remote Processure Call)
+Layer 4 do this from the Google Networking Tutorial
+
+Port Numbers defines which application the payload is intended for , Port no's ranges from 0 to 65535
+Ports form 0 to 1023 r known as designated ports or well known ports, such as TCP is for Port 80 as it designated
+from web traffic while TCP port 22 is designated for SSH, ports also ensure flow control and air free transport
+As the traffic rates increase the TCP ports will buffer to ensure that their is no data loss
+TCP , UDP and Handshakes from the Google Networking Tutorial
+
+Layer 3(Network layer) -> IP is the protocol used at this layer , this layer defines the network addresses and a
+logical network layout and router r required at this layer to communicate between network subnets
+
+Layer 2(Data link layer) ->  This layer is seperated into 2 sub layers -> LLC(Logical link control) it manages the
+communications between devices and these r functions r required for establishment and control of logical links
+between devices
+the 2nd sub layer is the MAC(Media Access Control) -> It manages the communication between the logical and physical
+mediums and this defines the MAC addresses
+
+Layer 1 do this from the Google Networking Tutorial
+
+TCP/IP is the most popular set of communications protocols used in a day, the TCP/IP consists of two layer 4 and 3
+TCP is for Transport layer which focus on the error free flow control, it buffers the stream of data to prevent the
+overloading and the IP part is for the Network layer which focuses on the Addressing, routing and fragmentation of
+data
+
+TCP vs UDP -> Screenshot(18)
+
+A broadcast domain is the logical separation of networked devices that can be reached via unicast or broadcast msg
+on the data link layer means its the device that hears all of the traffic that has been broadcast across the network
+while attempting to reach all users on a particular network segment, now in bigger LANs it can result into issue
+due to mulitple devices attempting to process these requests as the amount of traffic could be really huge while
+a Collision domain is a division within Broadcast Domain in which Frames from one networked device could collide
+with another, Screenshot(19)
+In the Collision domain any one device NIC could send out a frame which could then result in a collision with the
+another one, All of the devices among the collision domain share the bandwidth
+
+Their r 3 different types of traffics ->
+- Unicast - this traffic is sent from one to one host
+- Multicast - this traffic is sent from one to many host
+- Broadcast - this traffic is sent from one to all host
+Screenshot(20)
+
+Their r numerous devices available that will transmit and receive the network traffic these devices includes hubs,
+switches and routers
+Hub -> It has one broadcast domain and one collision domain share bandwidth, bcz which it cannot differentiate
+where it sends the data, as the data received is sent out to all ports to all devices and this can down bandwidth
+and initiate collisions on a large scale, On the Hub a broadcast can be heared by everyone and everyone is in danger
+of collisions, in some instances the users will daisy chain one hub off another creating even larger broadcast
+domain making the collision domain even more dangerous and now the bandwidth availabilty also took a major hit in
+a hub, data which is sent out on a port is received on all ports
+
+Bridge -> It is also not used any longer , A bridge was a able to divide a collision domain while still maintaining
+a single broadcast domain means it has one broadcast domain and segments the collision domain
+MAC was examined at the bridge edge to decide where to forward data, hence bridge create a table to mapping the
+physical addresses in particular ports, traffic can also be queued in bridge untill the collision domain is clear
+
+Switch -> In it each port has its own individual collision domain and by default the entire switch make a broadcast
+domain means one broadcast domain and multiple collision domain, it examines source MAC to know where to send and will
+broadcast is it is necessary means when the user send out a packet to an unknown destination for the 1st time the
+packets will be flooded out all the ports except the source port and once the destination is found it is kept in the
+MAC address table and for future that source port will know excatly where to send the information and then only the
+source and the destination ports will be affected
+
+Physical Ports to MAC address mapping is kept in a table called ARP table and both the router and the host have this
+information and this ensures that the both devices knows where the information is going to be sent to and the device
+does not know the physical address to send this data to it will sent out an ARP request and then wait for the ARP
+reply for this information
+To get the update to date information in case the physical address changes on the port, the default time in switch is
+5 minutes and in switch the ports r able to use full duplex which means sending and reciveing traffic simultanously
+,Switch can process data is far more then bridge
+
+Router -> It physically segment the broadcast domain means it has multiple broadcast domains, traffic can not be
+forwarded from a router unless it knows to do so means it will not send the traffic from one LAN segment to another,
+If their is no router multiple LANs would be cut off of each other and they will not send traffic from one to another
+
+Network Media Types ->
+Twisted Cables -> Do this from the Google Networking Tutorial
+
+To connect these cables using Pin layouts->
+- Straight-Through cables -> These r used from host to switch or Router to switch, The wires from end to end r
+one to one , two to two , three to three , six to six bcz of which they r known r straight through, Screenshot(21)
+
+- Crossover Cable -> they r used to connect host to host or switch to switch, these wires r connected as one to three
+, two to six , three to one , six to two, these pin layouts r switched bcz their host devices and switchs use the
+same pair of wire to transmit and recieve, so if communications were attempted using a striaght-through cable between
+switches they would be trying to transmit and recieve on the same lots so we reverse them in order to properly pass
+through communications, Screenshot(22)
+
+- Coaxical cables -> they r less common, the distances in devices is vastly greater then the ethernet cable, but the
+accessiories needed to install them r tidious and difficult to install on large network
+
+Wireless communication is flexible and cheap as it uses the Radio Frequencies or infrared waves to transmit data,
+access points r used to transmit and recieve the wireless signals, access points r placed all through out the
+facility depending on the coverage needed, these access points r connected back into the LAN via wired connection
+into a switch, so this access point can be autonomous in nature or managed via wireless controllers, wireless
+adapters r used at the network endpoints that require a wireless signal
+
+Ethernet Frame -> Do this from the Google Networking Tutorial
+
+Types of Ethernet -> Screenshot(23)
+
+CAM(Content Addressable Memory) Table -> A CAM table is used in a Switch to remember where particular MAC addresses
+r located on attached ports, when a switch receives a frame for the 1st time it does not know where to send it so
+it floods to all ports except the one from where it came from, once it finds the port to which it needs to go to
+then it keeps the information in the CAM table for future reference for specific amount of time, and in this way
+all the future decisions r made with the unicast packets instead of flooding the switch with all broadcast packets
+Screenshot(24,25)
+
+Their r two types of switching Packet and Circuit Switching
+Packet Switching -> The data is divided into packets and transmitted individually, Packets r the data which r
+encapsulated at the Network layer and they contain logical IP address information that is used to route the packets
+through networks, Frames r the data that r encapsulated at the data link layer which contains the physical MAC
+address information that can be used to switch frame through networks, frames r encapsulated inside packets and
+these do not need to follow each other and they can travel different routes to the destination, in some cases
+the network load will make row and these packets can then be queued and buffered to wait to be transmitted to the
+destination, when all packets reach the destination, the packets r reconstructed to original msg
+
+Circuit Switching -> A dedicated line is opened for each transmission, tis channel remains open for transmission
+even if their is no traffic preceiding over, each of these can be compared to different types of traffic for ex
+a packet switch network could be perfect for data network for circuit switch network  the phone system can be used
+
+Circuit switch is often considered more reliable bcz information will always flow due to line being dedicated and
+open however packet switching has depend on protocols such as TCP to make data more reliable, even voices now on
+packet switching networks with the help of UDP and particular QoS policies as it guarentees voice traffic
+receives presedence over other traffic
+
+V-LANs is the way to logically segment networks into seperate broadcast domains, In the V-LANs the administratively
+defined set of switchports that will be associated to a VLAN which creates its own broadcast domain, a physical
+switch has a giant broadcast domain and when a VLAN is created on a switch a broadcast domain is segmented without
+needing a router
+Now a Router or layer 3 switch is needed to communicate between VLNs, communcations between different broadcast
+domains must occur at Network layer which is why a router or layer 3 switch is required, this device will then
+route the traffic from one broadcast domain to another or from one subnet to another
+VLANs r created to futher segment the traffic this limits broadcast which can cause large amounts of overhead if
+the broadcast domains r too large, this helps to limit the no. of broadcasts and this is also very beneficial for
+security purposes as u can create VLAN for individuals in one department or based on the floors in the building
+and they will all serve the purpose of segmenting the broadcast traffic from people or devices, Suppose u have a
+Marketing department then u can keep all files, printers and users within marketing and not share any other information
+and other VLAN for the IT department, U can also create a hybrid VLAN in which users r in multiple department,
+VLANs provide u the ability to manupulate ur network design as u see fit and this should be done by keeping the
+growth and scalability in mind as ur network design can both grown and scalable for future situations and it is
+difficult to modify the deeply routed VLANs and hosts within those VLANs once they r built
+
+To configure VLANs steps ->
+- Create the VLAN itself, VLAN no must be 1 through 1005, VLAN between 1006 to 4000 and so on r available but u
+must be in VTP transparent mode in order to create those VLAN no's, give the VLAN a unique name for identification
+purposes, they can be named on the basis of department or floor
+- Associate the VLAN to a particular Port
+
+Here we r creating a VLAN 20 in configuration mode and name the VLAN ccna and then we enter in to the configuration
+mode on the router and assigned the VLAN to port fa0/1 by using the cmd 'switchport access vlan 20' and then we
+have associate the VLAN 20 to port 1 and this can also be done to other ports as well which would put those ports
+into the same broadcast domain as port 1
+
+code ->
+Switch#conf t
+Enter configuration commands, one per line. End with CNTL/Z.
+Switch(config)#vlan 20
+Switch(config-vlan)#name CCNA
+Switch(config-vlan)#exit
+Switch(config)#int fa0/1
+Switch(config-if)#switchport access vlan 20
+Switch(config-if)#exit
+Switch(config)#exit
+Switch#sh vlan
+%SYS-5-CONFIG_I: Configured from console by console
+
+cmd ->
+Switch#sh run int fa0/1
+
+VTP(VLAN Trunking Protocol) -> This advertise it's VLAN configuration information to neighbouring switches, this
+ability enables all switches in the network to learn the VLAN information dynamically as oppose to u going and
+statically configuring it on each switch and from the management point of view it is very beneficial
+Configuring VTP on all the switches and then gain the VLANs on one switch can save quite a bit of time
+
+Their r 3 modes to configure in a switch for VTP -> server, client and transparent
+cmd -> SW1(config)#vtp mode server
+Server mode -> Originates VTP advertisements a switch must be in server mode to create, modify and delete VLANs and
+have that information propigated across the network
+Client mode -> It is same as the server however it cannot create, modify or delete VLANs , it will listen to the
+server and make the changes necessary for VLAN configuration
+Transparent mode -> It ignores the VTP advertisements and simpily forwards them on, this is important as it will not
+affect the VLAN database which has all VLAN information for that particular switch and they will not receive information
+that VTP domain knows about and it stands alone in its configuration, transparent mode will not affect any other
+switches VLAN database information, transparent mode can create its own VLAN however it will not be propigated
+anywhere
+
+Other important VTP settings , VTP domains, VTP passwords and VTP configuration revision
+VTP Domain is the name of the entire and its members now the group of switchs which r involved in a particular singualr
+process is the VTP domain
+VTP use a password to allow memberships, to ensure that an unauthorized switch is not put into domain that could
+temper with the VLAN database and introduce the high configuration revision
+VTP configuration revision is another important aspect of the VTP it tells that the group of switches which device
+has the latest VLAN database information, now the switch with the highest configuration revision in the VTP server
+mode will invoke its authority as having the latest main VLAN database information
+
+Before the update process can begin the VTP domain must match between devices, show VTP status can provide u with
+this information for each switch once VTP domains match on the switches then the update process begins whether or
+whenever server switch add, delete or updates the configuration for the VLAN, when the update occurs configuration
+revision counter updates by 1 to make to ensure that all switches have the same revision no. which can ensure that
+the device r upto data on VLAN information
+
+When U add a new switch to the environment u must check the VTP information bcz if the switch is configured with the
+same name as ur VTP domain and it's a server it can send all of its VLAN configuration to all of ur switches now
+if it's configuration revision counter is higher then the switches in the network the the VLAN configuration will
+be sent out
+All VTP updates will be sent out on active trunk uplinks whether that's 8021q or ISL, U need to ensure that a password
+is sent that it matches across switches if not this will prevent switches from VTP domain
+
+EX ->
+Switch(config)#vtp mode server   //Setting device to VTP SERVER mode.
+Switch(config)#vtp domain CCNA   //Changing VTP domain name from NULL to CCNA
+
+cmd -> Switch#sh vtp status // this will provide the information regarding the VTP version which must match on
+switches in the network, it will show u the revision and addition vtp attributes
